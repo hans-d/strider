@@ -17,7 +17,7 @@ $(function() {
   // All repositories from /api/github/metadata
   window.RepoListCollection = Backbone.Collection.extend({
     model: Repo,
-    url: "/api/github/metadata",
+    url: "./api/github/metadata",
     parse: function(response) {
       return response.repos;
     }

@@ -15,7 +15,7 @@ $(function(){
     // Reference to this collection's model.
 
       model: User,
-      url: "/api/admin/users",
+      url: "./api/admin/users",
       parse: function(response) {
         return response;
       }

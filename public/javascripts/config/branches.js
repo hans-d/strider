@@ -11,7 +11,7 @@ app.controller('BranchesCtrl', ['$scope', function ($scope) {
       item.loading = true
       $scope.clearMessage()
       $.ajax({
-        url: '/' + $scope.project.name + '/branches/',
+        url: './' + $scope.project.name + '/branches/',
         type: 'DELETE',
         data: { name: item.name },
         success: function(data, ts, xhr) {
@@ -34,7 +34,7 @@ app.controller('BranchesCtrl', ['$scope', function ($scope) {
     var data = { name: $scope.branchName }
 
     $.ajax({
-      url: '/' + $scope.project.name + '/branches/',
+      url: './' + $scope.project.name + '/branches/',
       type: 'POST',
       data: data,
       dataType: 'json',
@@ -59,7 +59,7 @@ app.controller('BranchesCtrl', ['$scope', function ($scope) {
   $scope.changeBranchOrder = function (list) {
     $scope.branches = list;
     $.ajax({
-      url: '/' + $scope.project.name + '/branches/',
+      url: './' + $scope.project.name + '/branches/',
       type: 'PUT',
       data: { branches: list },
       dataType: 'json',

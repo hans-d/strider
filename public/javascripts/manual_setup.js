@@ -83,7 +83,7 @@ function init_manual_setup() {
             help_inline.html('Not a valid Github URL');
           } else {
                     
-            $.ajax("/api/github/manual_setup", {
+            $.ajax("./api/github/manual_setup", {
                data: { github_url:  github_url },
                dataType: "json",
                error: function(xhr, ts, e) {
@@ -148,7 +148,7 @@ function init_manual_setup() {
       events: {
         'click .continue' : function(ev) {
           
-          $.ajax("/api/jobs/start", {
+          $.ajax("./api/jobs/start", {
             data: {url: github_url.toLowerCase(), type:"TEST_ONLY"},
             dataType: "text",
             type: "POST",
@@ -199,7 +199,7 @@ function init_manual_setup() {
             this.current_view = ConfigurationInstructionsView;
             el = this.current_view.render().el;
             $(this.el).html(el);
-            $('.clippy').clippy({clippy_path:"/javascripts/clippy.swf"});
+            $('.clippy').clippy({clippy_path:"./javascripts/clippy.swf"});
             break;
 
           case 'setup_complete':

@@ -73,7 +73,7 @@ exports.make_admin = function(req,res) {
       console.error(err)
       return res.send(500, 'Error making admin user')
     }
-    res.redirect('/admin/users')
+    res.redirect('./admin/users')
   })
 }
 
@@ -90,7 +90,7 @@ exports.remove_user = function (req, res) {
       req.flash('admin', 'Removed ' + number + ' projects owned by ' + user.email)
       user.remove(function (err) {
         if (err) req.flash('admin', 'Failed to remove user')
-        res.redirect('/admin/users')
+        res.redirect('./admin/users')
       })
     })
   })

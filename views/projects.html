@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% pluginblock ExtraStyles %}
-<link rel="stylesheet" href="/stylesheets/css/projects.css"/>
+<link rel="stylesheet" href="./stylesheets/css/projects.css"/>
 <script>
   var providers = {{ providers | scriptjson | raw }};
   var accounts = {{ currentUser.accounts | scriptjson | raw }};
@@ -65,7 +65,7 @@
   <div class="tab-content" ng-controller="ProjectsController">
     <div ng-repeat="account in accounts" id="account-[[ account.provider ]]-[[ account.id ]]" class="row tab-pane" ng-class="{ active: $first }">
       <div class="pull-right">
-        <form action="/projects" method="post">
+        <form action="./projects" method="post">
           <input type="hidden" name="refresh" value=[[ account.provider ]] />
           <input type="hidden" name="aid" value=[[ account.id ]] />
           <button class="refresh btn btn-warning" ng-click="submit()"><i class="icon-refresh"></i></button>
@@ -177,7 +177,7 @@
                 <i class="icon-refresh icon-spin" ng-show="project.really_remove === 'removing'"></i>
                 Really remove
               </button>
-              <a href="/[[ project.name ]]/config" data-toggle="tooltip" title="Configure"><i class="icon-wrench"></i></a>
+              <a href="./[[ project.name ]]/config" data-toggle="tooltip" title="Configure"><i class="icon-wrench"></i></a>
               <button class="btn btn-danger" ng-click="project.really_remove = true" ng-disabled="project.really_remove">Remove</button>
               <button ng-disabled="repo.adding" class="btn btn-primary" ng-click="repo.adding = 'pick-type'">Add</button>
             </div>
@@ -192,7 +192,7 @@
 
 {% include "partials/spinner.html" %}
 
-<script src="/javascripts/modules/alerts.js"></script>
-<script src="/javascripts/modules/moment.js"></script>
-<script src="/javascripts/pages/projects.js"></script>
+<script src="./javascripts/modules/alerts.js"></script>
+<script src="./javascripts/modules/moment.js"></script>
+<script src="./javascripts/pages/projects.js"></script>
 {% endblock %}

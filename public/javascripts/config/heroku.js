@@ -15,7 +15,7 @@ app.controller('HerokuCtrl', ['$scope', function ($scope) {
   // unconfigured
   $scope.checkApi = function () {
     $scope.loading = true;
-    $.ajax("/api/heroku/account_integration", {
+    $.ajax("./api/heroku/account_integration", {
       data: {api_key: $scope.apikey},
       dataType: "json",
       error: function(xhr, ts, e) {
@@ -43,7 +43,7 @@ app.controller('HerokuCtrl', ['$scope', function ($scope) {
       app_name = $scope.new_app_name;
     }
     $scope.loading = true;
-    $.ajax("/api/heroku/delivery_integration", {
+    $.ajax("./api/heroku/delivery_integration", {
       data: {
         account_id: $scope.account_id,
         gh_repo_url: $scope.repo.url,
@@ -75,7 +75,7 @@ app.controller('HerokuCtrl', ['$scope', function ($scope) {
   $scope.toggleDeploy = function () {
     $scope.deploy_on_green = !$scope.deploy_on_green;
     $scope.loading = true;
-    $.ajax("/api/heroku/config", {
+    $.ajax("./api/heroku/config", {
       data: {url: $scope.repo.url, deploy_on_green: $scope.deploy_on_green},
       error: function(xhr, ts, e) {
         $scope.error("Error toggling deploy on green.");
@@ -93,7 +93,7 @@ app.controller('HerokuCtrl', ['$scope', function ($scope) {
   };
 
   $scope.removeHeroku = function () {
-    $.ajax("/api/heroku/config", {
+    $.ajax("./api/heroku/config", {
       data: {url: $scope.repo.url, unset_heroku:1},
       error: function(xhr, ts, e) {
         $scope.error("Error removing Heroku config.");

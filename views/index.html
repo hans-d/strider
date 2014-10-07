@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block extra_head %}
-<link rel="stylesheet" href="/stylesheets/css/dashboard.css">
+<link rel="stylesheet" href="./stylesheets/css/dashboard.css">
 {% endblock %}
 
 {% block bodyContent %}
@@ -12,7 +12,7 @@
 <div class='row-fluid' ng-app="dashboard" ng-controller="Dashboard" class="ng-cloak">
   <div>
     <div id="spinner" class="alert alert-info hide" ng-show="running.status === 'running' || running.status === 'submitted'">
-      <img class='spinner' src="/images/spinner.gif" />
+      <img class='spinner' src="./images/spinner.gif" />
       <span ng-switch="running.status">
         <span ng-switch-when="running">Running job...</span>
         <span ng-switch-when="submitted">Job submitted...</span>
@@ -96,8 +96,8 @@
   </div>
 </div>
 
-<script src="/javascripts/modules/moment.js"></script>
-<script src="/javascripts/modules/job-monitor.js"></script>
-<script src="/javascripts/pages/dashboard.js"></script>
+<script src="./javascripts/modules/moment.js"></script>
+<script src="./javascripts/modules/job-monitor.js"></script>
+<script src="./javascripts/pages/dashboard.js"></script>
 
 {% endblock %}

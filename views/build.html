@@ -3,8 +3,8 @@
 {% block bodyclass %}job_view{% endblock %}
 
 {% block extra_head %}
-<link rel="stylesheet" href="/stylesheets/css/build.css">
-<link rel="stylesheet" href="/stylesheets/css/plugin-status-compiled.css">
+<link rel="stylesheet" href="./stylesheets/css/build.css">
+<link rel="stylesheet" href="./stylesheets/css/plugin-status-compiled.css">
 {% endblock %}
 {% block bodyContent %}
 {% set page = "build" %}
@@ -16,7 +16,7 @@
     var showStatus = {{ showStatus | scriptjson() | raw }};
     var canAdminProject = {{ canAdminProject === true ? 'true' : 'false' }};
   </script>
-  <base href="/{{ page_base }}/"></base>
+  <base href="./{{ page_base }}/"></base>
   <div id="build-page" class="main" ng-view></div>
   <script id="build-tpl.html" type="text/ng-template">
     <div class="row-fluid job-page-intro">
@@ -35,7 +35,7 @@
                 title="Retest" class="clickable test-only-action">
             <i class="icon-refresh"></i>
           </span>
-          <a href="/[[ project.name ]]/config"
+          <a href="./[[ project.name ]]/config"
              ng-hide="!canAdminProject"
              title="Configure">
             <i class="icon-wrench"></i>
@@ -113,11 +113,11 @@
         </div>
     </div>
   </script>
-  <script src="/javascripts/modules/job-monitor.js"></script>
-  <script src="/javascripts/modules/moment.js"></script>
-  <script src="/javascripts/modules/ansi.js"></script>
-  <script src="/javascripts/pages/build.js"></script>
-  <script src="/javascripts/pages/plugin-status-compiled.js"></script>
+  <script src="./javascripts/modules/job-monitor.js"></script>
+  <script src="./javascripts/modules/moment.js"></script>
+  <script src="./javascripts/modules/ansi.js"></script>
+  <script src="./javascripts/pages/build.js"></script>
+  <script src="./javascripts/pages/plugin-status-compiled.js"></script>
 </div>
 {% pluginblock AfterJobPage %}{% endpluginblock %}
 {% endblock %}

@@ -21,7 +21,7 @@ function init_kickoff() {
         data.access_level = access_level;
       }
       $.ajax({
-        url: "/api/collaborators",
+        url: "./api/collaborators",
         type: "POST",
         data: data,
         dataType: "json",
@@ -106,7 +106,7 @@ function init_kickoff() {
       spinner.html(_.template($("#spinner-msg").html(),
                               {message:"Github respository setup complete. Starting first test build."}))
         .removeClass().addClass("alert alert-info");
-      $.ajax("/api/jobs/start", {
+      $.ajax("./api/jobs/start", {
         data: {url: repo_url, type:"TEST_ONLY"},
         dataType: "text",
         type: "POST",

@@ -7,7 +7,7 @@ app.controller('DeactivateCtrl', ['$scope', function ($scope) {
     $scope.active = !$scope.active;
     var data = {url: $scope.repo.url, active: $scope.active};
     $.ajax({
-      url: "/api/repo",
+      url: "./api/repo",
       type: "POST",
       data: data,
       dataType: "json",
@@ -32,7 +32,7 @@ app.controller('DeactivateCtrl', ['$scope', function ($scope) {
     bootbox.confirm('<h2>Really Delete Project Data?</h2><p>' + message + '</p>', 'Just kidding', 'Yes, really', function (really) {
       if (!really) return;
       $.ajax({
-        url: "/api/repo",
+        url: "./api/repo",
         type: "DELETE",
         data: {url: $scope.repo.url},
         success: function(data, ts, xhr) {

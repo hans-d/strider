@@ -12,7 +12,7 @@ app.controller('CollaboratorsCtrl', ['$scope', function ($scope) {
       item.loading = true;
       $scope.clearMessage();
       $.ajax({
-        url: '/' + $scope.project.name + '/collaborators/',
+        url: './' + $scope.project.name + '/collaborators/',
         type: 'DELETE',
         data: {email: item.email},
         success: function(data, ts, xhr) {
@@ -40,7 +40,7 @@ app.controller('CollaboratorsCtrl', ['$scope', function ($scope) {
     };
 
     $.ajax({
-      url: '/' + $scope.project.name + '/collaborators/',
+      url: './' + $scope.project.name + '/collaborators/',
       type: "POST",
       data: data,
       dataType: "json",

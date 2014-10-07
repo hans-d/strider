@@ -242,7 +242,7 @@
         });
       }
       $.ajax({
-        url: '/' + $scope.project.name + '/config/branch/?branch=' + encodeURIComponent($scope.branch.name),
+        url: './' + $scope.project.name + '/config/branch/?branch=' + encodeURIComponent($scope.branch.name),
         type: 'PUT',
         data: JSON.stringify({plugin_order: data}),
         contentType: 'application/json',
@@ -291,7 +291,7 @@
         , icon = plugins[plugin.id].icon
         , bg = null;
       if (icon)
-        bg = "url('/ext/"+plugin.id+"/"+plugins[plugin.id].icon+"')";
+        bg = "url('./ext/"+plugin.id+"/"+plugins[plugin.id].icon+"')";
       plugin.imgStyle = {
         'background-image': bg
       }
@@ -353,7 +353,7 @@
         data.plugins = branch.plugins;
       }
       $.ajax({
-        url: '/' + $scope.project.name + '/config/branch/?branch=' + encodeURIComponent($scope.branch.name),
+        url: './' + $scope.project.name + '/config/branch/?branch=' + encodeURIComponent($scope.branch.name),
         type: 'PUT',
         data: JSON.stringify(data),
         contentType: 'application/json',
@@ -373,7 +373,7 @@
     $scope.generateKeyPair = function () {
       bootbox.confirm('Really generate a new keypair? This could break things if you have plugins that use the current ones.', function (really) {
         if (!really) return;
-        $.ajax('/' + $scope.project.name + '/keygen/?branch=' + encodeURIComponent($scope.branch.name), {
+        $.ajax('./' + $scope.project.name + '/keygen/?branch=' + encodeURIComponent($scope.branch.name), {
           type: 'POST',
           success: function (data, ts, xhr) {
             $scope.branch.privkey = data.privkey;
@@ -394,7 +394,7 @@
 
     $scope.saveRunner = function (id, config) {
       $.ajax({
-        url: '/' + $scope.project.name + '/config/branch/runner/id/?branch=' + encodeURIComponent($scope.branch.name),
+        url: './' + $scope.project.name + '/config/branch/runner/id/?branch=' + encodeURIComponent($scope.branch.name),
         data: JSON.stringify({id: id, config: config}),
         contentType: 'application/json',
         type: 'PUT',
@@ -423,7 +423,7 @@
         return $scope.runnerConfigs[name];
       }
       $.ajax({
-        url: '/' + $scope.project.name + '/config/branch/runner/?branch=' + encodeURIComponent($scope.branch.name),
+        url: './' + $scope.project.name + '/config/branch/runner/?branch=' + encodeURIComponent($scope.branch.name),
         type: 'PUT',
         contentType: 'application/json',
         data: JSON.stringify(data),
@@ -451,7 +451,7 @@
         return $scope.project.provider.config;
       }
       $.ajax({
-        url: '/' + $scope.project.name + '/provider/',
+        url: './' + $scope.project.name + '/provider/',
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(data),
@@ -493,7 +493,7 @@
         throw new Error('Plugin not configured: ' + name);
       }
       $.ajax({
-        url: '/' + $scope.project.name + '/config/branch/' + name + '/?branch=' + encodeURIComponent(branch.name),
+        url: './' + $scope.project.name + '/config/branch/' + name + '/?branch=' + encodeURIComponent(branch.name),
         type: "PUT",
         contentType: 'application/json',
         data: JSON.stringify(data),
@@ -518,10 +518,10 @@
 
     $scope.deleteProject = function () {
       $.ajax({
-        url: '/' + $scope.project.name + '/',
+        url: './' + $scope.project.name + '/',
         type: 'DELETE',
         success: function () {
-          window.location = '/';
+          window.location = './';
         },
         error: function () {
           $scope.deleting = false;
@@ -532,11 +532,11 @@
 
     $scope.startTest = function () {
       $.ajax({
-        url: '/' + $scope.project.name + '/start',
+        url: './' + $scope.project.name + '/start',
         data:{branch: $scope.branch.name, type: "TEST_ONLY", page:"config"},
         type: 'POST',
         success: function() {
-          window.location = '/' + $scope.project.name + '/';
+          window.location = './' + $scope.project.name + '/';
         },
         error: function(xhr, ts, e) {
           if (xhr && xhr.responseText) {
@@ -549,11 +549,11 @@
 
     $scope.startDeploy = function () {
       $.ajax({
-        url: '/' + $scope.project.name + '/start',
+        url: './' + $scope.project.name + '/start',
         data:{branch: $scope.branch.name, type: "TEST_AND_DEPLOY", page:"config"},
         type: 'POST',
         success: function() {
-          window.location = '/' + $scope.project.name + '/';
+          window.location = './' + $scope.project.name + '/';
         },
         error: function(xhr, ts, e) {
           if (xhr && xhr.responseText) {
@@ -566,7 +566,7 @@
 
     $scope.saveProject = function () {
       $.ajax({
-        url: '/' + $scope.project.name + '/config',
+        url: './' + $scope.project.name + '/config',
         type: 'PUT',
         data: JSON.stringify({
           public: $scope.project.public

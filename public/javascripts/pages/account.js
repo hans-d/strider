@@ -32,7 +32,7 @@
         $scope.success('Account removed');
         return;
       }
-      $.ajax('/api/account/' + account.provider + '/' + account.id, {
+      $.ajax('./api/account/' + account.provider + '/' + account.id, {
         type: 'DELETE',
         success: function () {
           var idx = $scope.accounts[account.provider].indexOf(account);
@@ -73,7 +73,7 @@
     };
 
     $scope.saveAccount = function (provider, account, next) {
-      $.ajax('/api/account/' + provider + '/' + account.id, {
+      $.ajax('./api/account/' + provider + '/' + account.id, {
         type: 'PUT',
         data: JSON.stringify(account),
         contentType: 'application/json',
@@ -89,7 +89,7 @@
     };
 
     $scope.changePassword = function () {
-      $.ajax("/api/account/password", {
+      $.ajax("./api/account/password", {
         data: {password: $scope.password},
         dataType: "json",
         error: function(xhr, ts, e) {
@@ -105,7 +105,7 @@
     };
 
     $scope.changeEmail = function () {
-      $.ajax("/api/account/email", {
+      $.ajax("./api/account/email", {
         data: {email:$scope.user.email},
         dataType: "json",
         error: function(xhr, ts, e) {

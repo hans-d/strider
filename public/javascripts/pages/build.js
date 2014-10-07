@@ -99,7 +99,7 @@ var outputConsole;
 
 /** manage the favicons **/
 function setFavicon(status) {
-  $('link[rel*="icon"]').attr('href', '/images/icons/favicon-' + status + '.png');
+  $('link[rel*="icon"]').attr('href', './images/icons/favicon-' + status + '.png');
 }
 
 function animateFav() {
@@ -238,7 +238,7 @@ app.controller('JobCtrl', ['$scope', '$route', '$location', '$filter', function 
 
   $scope.clearCache = function () {
     $scope.clearingCache = true;
-    $.ajax('/' + $scope.project.name + '/cache/' + $scope.job.ref.branch, {
+    $.ajax('./' + $scope.project.name + '/cache/' + $scope.job.ref.branch, {
       type: 'DELETE',
       success: function () {
         $scope.clearingCache = false;
@@ -315,7 +315,7 @@ app.controller('JobCtrl', ['$scope', '$route', '$location', '$filter', function 
   $scope.page = 'build';
   // a history item is clicked
   $scope.selectJob = function (id) {
-    $location.path('/job/' + id).replace();
+    $location.path('./job/' + id).replace();
   };
 
   // set the favicon according to job status

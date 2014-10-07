@@ -57,7 +57,7 @@ function invite_new(req, res) {
 
   invite.save(function(err, invite) {
     email.send_invite(invite.code, email_addr)
-    res.redirect('/admin/invites')
+    res.redirect('./admin/invites')
   });
 }
 

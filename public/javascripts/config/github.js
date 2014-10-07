@@ -8,7 +8,7 @@ app.controller('GithubCtrl', ['$scope', function ($scope) {
       if (!result) return
       // XXXX remove it.
       $scope.info('Deleting webhooks...');
-      $.ajax('/api/github/webhooks/unset', {
+      $.ajax('./api/github/webhooks/unset', {
         data: {url: $scope.repo.url},
         dataType: 'json',
         error: function(xhr, ts, e) {

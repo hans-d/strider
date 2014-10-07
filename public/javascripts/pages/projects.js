@@ -15,7 +15,7 @@
     $scope.projects = window.manualProjects[provider] || [];
     $scope.remove = function (project) {
       project.really_remove = 'removing';
-      $.ajax('/' + project.name + '/', {
+      $.ajax('./' + project.name + '/', {
         type: 'DELETE',
         success: function () {
           $scope.projects.splice($scope.projects.indexOf(project), 1);
@@ -29,7 +29,7 @@
     $scope.create = function () {
       var name = $scope.display_name.toLowerCase();
       if (!validName(name)) return;
-      $.ajax('/' + name + '/', {
+      $.ajax('./' + name + '/', {
         type: 'PUT',
         contentType: 'application/json',
         data: JSON.stringify({
@@ -87,7 +87,7 @@
       repo.really_remove = 'removing';
       repo.adding = false;
 
-      $.ajax('/' + repo.name + '/', {
+      $.ajax('./' + repo.name + '/', {
         type: 'DELETE',
         success: function (data, ts, xhr) {
           repo.project = null;
@@ -106,7 +106,7 @@
       });
     };
     $scope.setupProject = function (account, repo, type, group) {
-      $.ajax('/' + repo.name + '/', {
+      $.ajax('./' + repo.name + '/', {
         type: 'PUT',
         contentType: 'application/json',
         data: JSON.stringify({
@@ -136,11 +136,11 @@
       });
     };
     $scope.startTest = function (repo) {
-      $.ajax('/' + repo.project.name + '/start', {
+      $.ajax('./' + repo.project.name + '/start', {
         type: 'POST',
         success: function (data, ts, xhr) {
           repo.adding = false;
-          $scope.success('Test started for ' + repo.project.name + '. <a href="/' + repo.project.name + '/">Click to watch it run</a>', true, true);
+          $scope.success('Test started for ' + repo.project.name + '. <a href="./' + repo.project.name + '/">Click to watch it run</a>', true, true);
         },
         error: function (xhr, ts, e) {
           if (xhr && xhr.responseText) {

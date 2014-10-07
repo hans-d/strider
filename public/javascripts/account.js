@@ -14,7 +14,7 @@ $(function() {
       var password_confirm = $(this.el).find('input[name="password_confirm"]').val();
       if (this.validate(password, password_confirm)) {
         var el = $(this.el);
-        $.ajax("/api/account/password", {
+        $.ajax("./api/account/password", {
           data: {password:password},
           dataType: "json",
           error: function(xhr, ts, e) {
@@ -64,7 +64,7 @@ $(function() {
       var email = $(this.el).find('input[name="email"]').val();
       if (this.validate(email)) {
         var el = $(this.el);
-        $.ajax("/api/account/email", {
+        $.ajax("./api/account/email", {
           data: {email:email},
           dataType: "json",
           error: function(xhr, ts, e) {
